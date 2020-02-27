@@ -1,5 +1,6 @@
 package com.lxxjn0.book.springboot.web;
 
+import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -26,4 +27,16 @@ public class HelloControllerTest {
 			.andExpect(content().string(hello));
 	}
 
+	@Test
+	public void helloDto_ReturnHelloDto() throws Exception {
+		String name = "hello";
+		int amount = 1000;
+
+		mvc.perform(get("/hello/dto")
+			.param("name", name)
+			.param("amount", String.valueOf(amount)))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name", is(name)))
+			.andExpect(jsonPath("$.amount", is(amount)));
+	}
 }
