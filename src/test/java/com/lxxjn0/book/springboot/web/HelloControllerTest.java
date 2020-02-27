@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 @RunWith(SpringRunner.class)
 @WebMvcTest
 public class HelloControllerTest {
+
 	@Autowired
 	private MockMvc mvc;
 
@@ -24,4 +25,5 @@ public class HelloControllerTest {
 			.andExpect(status().isOk())
 			.andExpect(content().string(hello));
 	}
+
 }
