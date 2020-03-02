@@ -1,5 +1,7 @@
 package com.lxxjn0.book.springboot.web;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lxxjn0.book.springboot.service.posts.PostsService;
+import com.lxxjn0.book.springboot.web.dto.PostsListResponseDto;
 import com.lxxjn0.book.springboot.web.dto.PostsResponseDto;
 import com.lxxjn0.book.springboot.web.dto.PostsSaveRequestDto;
 import com.lxxjn0.book.springboot.web.dto.PostsUpdateRequestDto;
@@ -32,6 +35,11 @@ public class PostsApiController {
 	@GetMapping("/api/v1/posts/{id}")
 	public PostsResponseDto findById(@PathVariable Long id) {
 		return postsService.findById(id);
+	}
+
+	@GetMapping("/api/v1/posts/list")
+	public List<PostsListResponseDto> findAll() {
+		return postsService.findAllDesc();
 	}
 
 }
