@@ -2,7 +2,7 @@
 .gradle
 .idea
 
-application-google.properties
+application-oauth.properties
 
 build
 out
