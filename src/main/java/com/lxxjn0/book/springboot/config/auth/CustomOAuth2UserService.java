@@ -13,6 +13,8 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
+import com.lxxjn0.book.springboot.config.auth.dto.OAuthAttributes;
+import com.lxxjn0.book.springboot.config.auth.dto.SessionUser;
 import com.lxxjn0.book.springboot.domain.user.User;
 import com.lxxjn0.book.springboot.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
